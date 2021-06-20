@@ -1,9 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux'
 import { editItem, changeEditedId, removeItem } from '../../Reducers/Reducers';
 
 const List = styled.ul`
   margin-top: 25px;
+
+  & .item:nth-of-type(n + 2) {
+    margin-top: 15px;
+  }
+
+  & .item {
+    button {
+      margin-left: 15px;
+    }
+  }
 `
 
 export default function ItemsList() {
@@ -23,7 +33,7 @@ export default function ItemsList() {
    <List>
      {items.map(item => 
         <li className="item" key={item.id}>
-        {item.name} {item.price}<span>₽</span> 
+        {item.name} {item.price} <span>₽</span> 
         <button onClick={() => handleEdit(item.name, item.price, item.id)}>✎</button>
         <button onClick={() => handleRemove(item.id)}>✕</button>
         </li>)}

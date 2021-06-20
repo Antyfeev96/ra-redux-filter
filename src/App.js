@@ -1,5 +1,5 @@
 import './App.css';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import AddForm from './Components/Form/AddForm';
 import ItemsList from './Components/ItemsList/ItemsList';
 

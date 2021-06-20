@@ -1,24 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeInputField, changeEditedId, addItem, saveEditedItem } from '../../Reducers/Reducers';
 
 const Form = styled.form`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  `
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
 
-  const NameInput = styled.input`
+const NameInput = styled.input``
 
-  `
+const PriceInput = styled.input``
 
-  const PriceInput = styled.input`
-
-  `
-
-  const Button = styled.button`
-    cursor: pointer;
-  `
+const Button = styled.button`
+  cursor: pointer;
+`
 
 export default function AddForm() {
   const state = useSelector(state => state.toolkit);
