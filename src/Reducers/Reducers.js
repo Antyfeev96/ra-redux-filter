@@ -7,10 +7,15 @@ export const toolkitSlice = createSlice({
     name: '', 
     price: '', 
     editedId: null,
+    filterString: '',
     list: [
       { id: nanoid(), name: "Замена стекла", price: 21000 },
       { id: nanoid(), name: "Замена дисплея", price: 25000 },
-    ]
+    ],
+    filteredList:[
+      { id: nanoid(), name: "Замена стекла", price: 21000 },
+      { id: nanoid(), name: "Замена дисплея", price: 25000 },
+    ],
   },
 
   reducers: {
@@ -43,10 +48,16 @@ export const toolkitSlice = createSlice({
         }
         return item;
       })
+    },
+    applyFilter(state, action) {
+      state.filterString = action.payload.toLowerCase();
+    },
+    changeFilteredList(state) {
+      state.filteredList = [...state.list.filter(item => item.name.toLowerCase().includes(state.filterString))];
     }
   }
 })
 
 
 export default toolkitSlice.reducer;
-export const { addItem, editItem, removeItem, changeInputField, changeEditedId, saveEditedItem } = toolkitSlice.actions;
+export const { addItem, editItem, removeItem, changeInputField, changeEditedId, saveEditedItem, applyFilter, changeFilteredList } = toolkitSlice.actions;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeInputField, changeEditedId, addItem, saveEditedItem } from '../../Reducers/Reducers';
+import { changeInputField, changeEditedId, addItem, saveEditedItem, changeFilteredList } from '../../Reducers/Reducers';
 
 const Form = styled.form`
   display: flex;
@@ -34,6 +34,7 @@ export default function AddForm() {
     event.preventDefault();
     const { name, price } = state
     dispatch(addItem({ name, price }));
+    dispatch(changeFilteredList())
     clearInputs();
   }
 
