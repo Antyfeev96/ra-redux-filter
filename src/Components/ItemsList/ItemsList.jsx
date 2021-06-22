@@ -17,7 +17,7 @@ const List = styled.ul`
 `
 
 export default function ItemsList() {
-  const filteredList = useSelector(state => state.toolkit.filteredList);
+  const list = useSelector(state => state.toolkit.filterString === '' ? state.toolkit.list : state.toolkit.filteredList);
   const dispatch = useDispatch();
 
   const handleEdit = (name, value, id) => {
@@ -31,7 +31,7 @@ export default function ItemsList() {
 
   return (
    <List>
-     {filteredList.map(item => 
+     {list.map(item => 
         <li key={item.id} className="item">
         {item.name} {item.price} <span>₽</span> 
         <button onClick={() => handleEdit(item.name, item.price, item.id)}>✎</button>

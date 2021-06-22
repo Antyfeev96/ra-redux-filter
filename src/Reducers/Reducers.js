@@ -30,6 +30,7 @@ export const toolkitSlice = createSlice({
     },
     removeItem(state, action) {
       const id = action.payload;
+      console.log(id);
       state.list = state.list.filter(item => item.id !== id)
     },
     changeInputField(state, action) {
@@ -41,7 +42,7 @@ export const toolkitSlice = createSlice({
     },
     saveEditedItem(state, action) {
       const { name, price } = action.payload;
-      state = state.list.map(item => {
+      state.list = state.list.map(item => {
         if (item.id === state.editedId) {
           item.name = name;
           item.price = price
