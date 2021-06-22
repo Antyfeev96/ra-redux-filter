@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { applyFilter } from '../../Reducers/Reducers';
+import { applyFilter, changeFilteredList } from '../../Reducers/Reducers';
 
 const StyledFilter = styled.div`
   width: 100%;
@@ -17,6 +17,7 @@ export default function Filter() {
   const handleFilter = event => {
     const { value } = event.target;
     dispatch(applyFilter(value));
+    dispatch(changeFilteredList())
   }
 
   return (
